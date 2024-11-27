@@ -3,17 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Engine 2D</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Game Engine 2D - Jogos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4a90e2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+
+        .game-description {
+            color: #a0a0a0;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .play-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: #357abd;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            color: #a0a0a0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
 </head>
 <body>
-    <div id="game-container">
-        <canvas id="gameCanvas"></canvas>
-        <div id="ui-layer"></div>
-    </div>
+    <div class="container">
+        <header>
+            <h1>Game Engine 2D</h1>
+            <p class="description">
+                Uma engine de jogos 2D poderosa e flexível para criar jogos incríveis direto no navegador.
+                Explore nossos jogos de exemplo e aprenda como criar os seus próprios!
+            </p>
+        </header>
 
-    <!-- Core Engine -->
-    <script type="module" src="js/core/Engine.js"></script>
-    <script type="module" src="js/main.js"></script>
+        <div class="games-grid">
+            <a href="games/mario-style/index.html" class="game-card">
+                <h2 class="game-title">Super Jump Adventure</h2>
+                <p class="game-description">
+                    Um jogo de plataforma estilo Mario com física realista, inimigos e moedas para coletar.
+                    Use as setas ou WASD para mover e espaço para pular!
+                </p>
+                <div class="play-button">Jogar Agora</div>
+            </a>
+
+            <a href="examples/platformer/index.html" class="game-card">
+                <h2 class="game-title">Platformer Demo</h2>
+                <p class="game-description">
+                    O jogo de demonstração original da engine, mostrando as funcionalidades básicas
+                    de física, colisões e controles.
+                </p>
+                <div class="play-button">Jogar Agora</div>
+            </a>
+
+            <!-- Espaço reservado para novos jogos -->
+            <div class="game-card" style="opacity: 0.7;">
+                <h2 class="game-title">Seu Jogo Aqui!</h2>
+                <p class="game-description">
+                    Use nossa engine para criar seu próprio jogo e adicione-o à coleção.
+                    Confira a documentação para começar!
+                </p>
+                <div class="play-button">Em Breve</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Game Engine 2D 2024 - Desenvolvido com para criadores de jogos</p>
+        </footer>
+    </div>
 </body>
 </html>
