@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Engine 2D - Editor Visual</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/editor.css">
+    <!-- Blockly -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <!-- PixiJS -->
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+</head>
+<body>
+    <div class="editor-container">
+        <!-- Barra de Ferramentas Superior -->
+        <div class="toolbar">
+            <div class="btn-group">
+                <button id="newScene" class="btn btn-primary">Nova Cena</button>
+                <button id="saveProject" class="btn btn-success">Salvar</button>
+                <button id="loadProject" class="btn btn-info">Carregar</button>
+                <button id="testGame" class="btn btn-warning">Testar Jogo</button>
+            </div>
+        </div>
+
+        <!-- Área Principal -->
+        <div class="main-content">
+            <!-- Painel Lateral Esquerdo - Assets e Objetos -->
+            <div class="left-panel">
+                <div class="panel-header">Objetos</div>
+                <div class="objects-list">
+                    <div class="object-item" draggable="true" data-type="player">
+                        Jogador
+                    </div>
+                    <div class="object-item" draggable="true" data-type="platform">
+                        Plataforma
+                    </div>
+                    <div class="object-item" draggable="true" data-type="enemy">
+                        Inimigo
+                    </div>
+                    <div class="object-item" draggable="true" data-type="coin">
+                        Moeda
+                    </div>
+                </div>
+                <div class="panel-header">Assets</div>
+                <div class="assets-list">
+                    <button id="uploadAsset" class="btn btn-secondary btn-sm">Upload Asset</button>
+                    <div class="asset-gallery"></div>
+                </div>
+            </div>
+
+            <!-- Área Central - Editor de Cena -->
+            <div class="scene-editor">
+                <canvas id="gameCanvas"></canvas>
+            </div>
+
+            <!-- Painel Lateral Direito - Propriedades e Blocos -->
+            <div class="right-panel">
+                <div class="properties-panel">
+                    <div class="panel-header">Propriedades</div>
+                    <div id="propertiesContent"></div>
+                </div>
+                <div class="blocks-panel">
+                    <div class="panel-header">Blocos</div>
+                    <div id="blocklyDiv"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- XML para definir os blocos do Blockly -->
+    <xml id="toolbox" style="display: none">
+        <category name="Movimento" colour="#5b67a5">
+            <block type="move_right"></block>
+            <block type="move_left"></block>
+            <block type="jump"></block>
+        </category>
+        <category name="Eventos" colour="#5ba55b">
+            <block type="on_key_pressed"></block>
+            <block type="on_collision"></block>
+        </category>
+        <category name="Controle" colour="#a5745b">
+            <block type="controls_if"></block>
+            <block type="controls_repeat"></block>
+        </category>
+    </xml>
+
+    <!-- Scripts -->
+    <script src="js/editor/EditorUI.js" type="module"></script>
+    <script src="js/editor/SceneManager.js" type="module"></script>
+    <script src="js/editor/BlockManager.js" type="module"></script>
+    <script src="js/editor/AssetManager.js" type="module"></script>
+    <script src="js/editor/main.js" type="module"></script>
+</body>
+</html>

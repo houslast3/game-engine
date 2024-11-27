@@ -1,0 +1,181 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a2e;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Barra de ferramentas */
+.toolbar {
+    background: #16213e;
+    padding: 10px;
+    border-bottom: 1px solid #2a2a4a;
+}
+
+.btn-group {
+    gap: 10px;
+}
+
+/* Área principal */
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Painéis laterais */
+.left-panel, .right-panel {
+    width: 250px;
+    background: #16213e;
+    border-right: 1px solid #2a2a4a;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    border-right: none;
+    border-left: 1px solid #2a2a4a;
+}
+
+.panel-header {
+    padding: 10px;
+    background: #2a2a4a;
+    font-weight: bold;
+    border-bottom: 1px solid #3a3a5a;
+}
+
+/* Lista de objetos */
+.objects-list {
+    padding: 10px;
+}
+
+.object-item {
+    padding: 8px;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    cursor: move;
+    transition: background 0.3s;
+}
+
+.object-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Área de assets */
+.assets-list {
+    padding: 10px;
+}
+
+.asset-gallery {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+/* Editor de cena */
+.scene-editor {
+    flex: 1;
+    background: #1a1a2e;
+    position: relative;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Painel de propriedades */
+.properties-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#propertiesContent {
+    padding: 10px;
+}
+
+/* Área de blocos */
+.blocks-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+#blocklyDiv {
+    flex: 1;
+    background: #fff;
+}
+
+/* Estilos para elementos arrastáveis */
+.dragging {
+    opacity: 0.5;
+}
+
+.drag-over {
+    border: 2px dashed #4a90e2;
+}
+
+/* Propriedades do objeto */
+.property-group {
+    margin-bottom: 15px;
+}
+
+.property-label {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-bottom: 5px;
+}
+
+.property-input {
+    width: 100%;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* Botões */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .left-panel, .right-panel {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .left-panel, .right-panel {
+        width: 100%;
+        height: 200px;
+    }
+}
